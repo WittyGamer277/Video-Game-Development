@@ -12,6 +12,7 @@ public class Zombie : MonoBehaviour {
 	[SerializeField]
 	GameObject mbExplosion;
 
+    [SerializeField]
 	private int Health = 100;
 
 	// Use this for idfdfnitialization
@@ -30,6 +31,7 @@ public class Zombie : MonoBehaviour {
 		{
 			agent.destination = target.transform.position;
 		}
+
 		if(Health <= 0)
 		{
 			Instantiate(mbExplosion, transform.position, Quaternion.Euler(Vector3.zero));

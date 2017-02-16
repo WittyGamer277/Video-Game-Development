@@ -19,16 +19,22 @@ public class Bullets : MonoBehaviour {
 
 	void OnTriggerEnter(Collider other)
 	{
+        
 		var zombie = other.gameObject.GetComponent<Zombie>();
-		
 
 		if (zombie != null)
 		{
 			zombie.TakeDamage(20);
-			
 		}
 
-		AudioSource.PlayClipAtPoint(bubblePop, transform.position);
+        var zombieCol = other.gameObject.GetComponent<ZombieCollider>();
+
+        if (zombieCol != null)
+        {
+            zombieCol.TakeDamage(20);
+        }
+
+        AudioSource.PlayClipAtPoint(bubblePop, transform.position);
 		Destroy(this.gameObject);
 	}
 }
